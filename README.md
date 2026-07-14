@@ -1,6 +1,6 @@
 # 🛡️ Azure Cloud Honeypot: Live Threat Intelligence with Microsoft Sentinel SIEM
 
-> Deployed a deliberately exposed corporate developer endpoint in Azure, ingested logs into Microsoft Sentinel, wrote KQL to detect and geolocate threat actors, and watched over 100,000 real brute-force attempts pour in from around the world — within 18 hours.
+> Deployed a deliberately exposed corporate developer endpoint in Azure, ingested logs into Microsoft Sentinel, wrote KQL to detect and geolocate threat actors, and watched over 60,000 real brute-force attempts pour in from around the world — within 18 hours.
 
 ![Platform](https://img.shields.io/badge/platform-Microsoft_Azure-0078D4?style=flat-square&logo=microsoftazure&logoColor=white)
 ![SIEM](https://img.shields.io/badge/SIEM-Microsoft_Sentinel-0a192f?style=flat-square)
@@ -175,7 +175,7 @@ VM was deprovisioned after the 18-hour observation window. All resources deleted
 
 > 10 incidents generated within the first monitoring window. 326 events ingested. Brute-force analytics rules firing.
 
-![Incident Trigger](screenshots/IncidentTrigger.png)
+![Incident Trigger](IncidentTrigger.png)
 
 ---
 
@@ -183,7 +183,7 @@ VM was deprovisioned after the 18-hour observation window. All resources deleted
 
 > Running the SecurityEvent KQL query against the Log Analytics Workspace. Failed logon events (4625) visible from accounts including `\Admin`, `\poundtown1`, `\Gettybutt` — classic credential-stuffing targets.
 
-![Log Injection Start](screenshots/Log_Injection_Start.png)
+![Log Injection Start](Log_Injection_Start.png)
 
 ---
 
@@ -191,7 +191,7 @@ VM was deprovisioned after the 18-hour observation window. All resources deleted
 
 > Sentinel Workbook GeoIP map early in the observation window. Attack traffic beginning to register — Port Clinton (US): 4 events (my own activity), Tabapora (Brazil): 2 events. The calm before the storm.
 
-![Early Attack Map](screenshots/Screenshot_2026-06-06_at_7_47_05_PM.png)
+![Early Attack Map](geoip_8hour.png)
 
 ---
 
@@ -199,7 +199,7 @@ VM was deprovisioned after the 18-hour observation window. All resources deleted
 
 > 18 hours in. 62,600 events ingested. 23 alerts. 10 active incidents — all "Brute Force Lead to Success." The annotation shows the sheer volume of corporate network login attempts. SecurityEvent table alone: 61.1K entries.
 
-![62K Events](screenshots/Screenshot_2026-06-07_at_6_47_40_PM.png)
+![62K Events](SIEM_Dashboard.png)
 
 ---
 
@@ -207,7 +207,7 @@ VM was deprovisioned after the 18-hour observation window. All resources deleted
 
 > GeoIP map showing attacker origin distribution at peak. Netherlands leading with 20.1K events, Spain 11.2K, South Korea 5.18K. The large red circle over Western Europe represents the dominant attack cluster. Automated scanning infrastructure — not manual attempts.
 
-![Attack Map Defender](screenshots/Screenshot_2026-06-07_at_1_38_32_PM.png)
+![Attack Map Defender](geoip_18hour.png)
 
 ---
 
@@ -215,7 +215,7 @@ VM was deprovisioned after the 18-hour observation window. All resources deleted
 
 > Same data in the Sentinel Workbook view. Global distribution confirms this is automated botnet/scanner activity — no single origin, no specific targeting. Opportunistic scanning that found the open port through routine internet sweeps.
 
-![Attack Map Azure](screenshots/Screenshot_2026-06-07_at_1_39_04_PM.png)
+![Attack Map Azure](geoip_18hour_old.png)
 
 ---
 
